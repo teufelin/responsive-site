@@ -1,0 +1,178 @@
+@import "compass";
+@import url(https://fonts.googleapis.com/css?family=Abel);
+// font-family
+$baseFontFamily :"游ゴシック", YuGothic, "メイリオ",Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+
+// colors
+$baseColor: #fdfcf6;
+$subColor1: #fff;
+$subColor2: #4cc9c9;
+$keyColor: #b20000;
+$fontColor: #4c4c4c;
+
+/*color選定
+香港のイメージを出すためキーカラーには落ち着きめの#b20000を選定。
+補色として#00b2b2の明度を上げた#e5f7f7を選定。
+*/
+
+// base
+html{ font-size: 62.5%; }
+
+body{
+  color: $fontColor;
+  font-size: 1.4rem;
+  font-family:$baseFontFamily;
+  line-height:1.6;
+  letter-spacing: 0.1em;
+  background-color: $baseColor;
+  text-align: center;
+}
+
+h1{
+    font-size: 3rem;
+    margin: 20px 25px;
+}
+
+//layout
+.block-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+//font
+.abel {
+  font-family: 'Abel', sans-serif;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+
+//contents
+.main-img{
+  background-image: url("../images/top.png");
+  height: 500px;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+
+.introduction{
+  p{
+  margin: 20px 25px;
+  text-align: center;
+  }
+}
+.pickups{
+  @include display-flex;
+  justify-content: space-between;
+  margin: 20px;
+  padding: 30px;
+}
+
+.pickup-box {
+  @include flex(1);
+  margin: 5px 50px;
+  padding: 20px;
+  background-color: $subColor1;
+  border: solid $keyColor 1px;
+  @include box-sizing(border-box);
+
+  i {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 5px;
+    padding-top: 15px;
+    background-color: $keyColor;
+    font-size: 4.5rem;
+    color: #fff;
+    text-align: center;
+    @include box-sizing(border-box);
+    @include border-radius(50%);
+  }
+  
+  h3 {
+    @extend .abel;
+    color: $keyColor;
+    margin-bottom:10px;
+    font-size: 2.4rem;
+    font-weight: bold;
+
+  }
+
+  p{
+    text-align: left;
+  }
+}
+
+.bottom{
+  background-color: #e5f7f7;
+  padding: 25px;
+
+  .read-more{
+    margin: 15px 0 30px;
+
+    a{
+      background-color: $keyColor;
+      color: $subColor1;
+      font-weight: bold;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      padding: 12px 65px;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+
+@media(max-width: 768px){
+//common
+body{
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+h1{
+  font-size: 2rem;
+}
+
+//contents
+  .main-img{
+    height: 250px;
+  }
+
+.introduction{
+  p{
+  text-align: justify;
+  }
+}
+
+  .pickups{
+    @include flex-direction(column);
+    margin: 10px;
+    padding: 15px;
+    
+    .pickup-box{
+      margin: 15px 0;
+      padding: 15px 20px;
+      text-align: center;
+      
+      p{
+        text-align: left;
+      }
+    }
+  }
+  
+  .bottom{
+    text-align: justify;
+  
+    .read-more{
+      text-align: center;
+    }
+  }
+
+}
